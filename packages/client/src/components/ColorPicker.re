@@ -40,7 +40,7 @@ let make = (~className="") => {
     );
 
   <div
-    className={Cn.make([
+    className={Cn.fromList([
       "flex flex-wrap max-w-xs self-start",
       pickerWidth,
       className,
@@ -49,7 +49,7 @@ let make = (~className="") => {
      ->Belt.Array.mapWithIndex((ind, rgbColor) =>
          <div
            key={ind |> string_of_int}
-           className={Cn.make([
+           className={Cn.fromList([
              Css.(
                style([
                  width(px(Styles.colorSquareSize)),
@@ -65,11 +65,11 @@ let make = (~className="") => {
                ])
              ),
              "border-2 mr-1 mb-1",
-             Cn.ifTrue(
+             Cn.on(
                "border-gray-500 ",
                !isEqualColor(selectedColor, rgbColor),
              ),
-             Cn.ifTrue(
+             Cn.on(
                "shadow-outline",
                isEqualColor(selectedColor, rgbColor),
              ),

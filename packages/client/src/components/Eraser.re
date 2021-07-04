@@ -13,10 +13,10 @@ let make = () => {
 
   <div
     onClick={_ => dispatch(State.EraserSelected)}
-    className={Cn.make([
+    className={Cn.fromList([
       "bg-gray-400 hover:bg-gray-300 text-white tracking-wider py-1 px-2
       border-b-4 border-gray-600 hover:border-gray-500 hover:cursor-pointer rounded",
-      Cn.ifTrue("shadow-outline", active),
+      Cn.on("shadow-outline", active),
     ])}>
     <svg viewBox="0 0 64 64" width="40px" height="40px">
       <path
